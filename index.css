@@ -1,0 +1,39 @@
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+#divTitulo {
+    background-color: #121858;
+    padding: 4%;
+}
+
+#divPlayer {
+    background-color: #efefef;
+    margin-top: 2%;
+}
+
+h1 {
+    color: white;
+    font-size: 70px;
+    margin-left: 37%;
+}
+
+h2 {
+    font-size: 35px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 1%;
+    font-style: italic;
+}
+
+button {
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}

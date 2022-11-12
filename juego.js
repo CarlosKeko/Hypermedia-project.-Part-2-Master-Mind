@@ -5,6 +5,7 @@ var perdidas;
 var ronda;
 var ganadasContador;
 var perdidasContador;
+var nombreUsuario;
 
 function iniciarPartida() {
     var username = document.getElementById('username');
@@ -21,12 +22,14 @@ function iniciarPartida() {
 
     if (username.value.trim() === "") {
         titleName.innerHTML = "Default-Name";
+        nombreUsuario = "Default-Name"
 
     }else {
         titleName.innerHTML = username.value;
+        nombreUsuario = username.value;
 
     }
-    titleName.innerHTML = numberArray;
+    // titleName.innerHTML = numberArray;
 
     document.getElementById('botonJuego').style.display = 'block';
     document.getElementById('botonPlay').style.display = 'none';
@@ -50,17 +53,28 @@ function play() {
     var acertadasPosicion = 0;
 
     if (isNaN(text.value)) {
-        // document.getElementById('playerInformation').innerHTML = "NO es integer";
         alert("Enter a valid number");
 
     }else {
-        // document.getElementById('playerInformation').innerHTML = "es integer";
         if (text.value > 999 && text.value < 10000) {
+            const mytable = document.getElementById('dynamic-table');
 
             if (text.value === number.toString()) {
+                alert("Congratulations " + nombreUsuario + "!!!!");
                 document.getElementById('marcadorGanadas').innerHTML = ganadasContador++;
                 
-            }else {
+                ronda = 0;
+                cogerNumero();
+                // mytable.innerHTML = '';
+
+                var tableRows = mytable.getElementsByTagName('tr');
+                var rowCount = tableRows.length;
+
+                for (var x=rowCount-1; x>0; x--) {
+                   mytable.removeChild(tableRows[x]);
+                }
+
+            }else {        
                 numeroArrayRespuesta = text.value.toString().split('');
 
                 if (numeroArrayRespuesta[0] === numberArray[0].toString()) {
@@ -89,8 +103,6 @@ function play() {
                     }
                     primeraVez = true;
                 }
-
-                const mytable = document.getElementById('dynamic-table');
 
                 let newRow = document.createElement('tr');
     
@@ -121,8 +133,24 @@ function play() {
             
                 mytable.appendChild(newRow);
                 // titleName.innerHTML = numeroArrayRespuesta;
-                
-                
+
+                if (ronda > 9) {
+                    alert(nombreUsuario + ", you have lost!");
+                    document.getElementById('marcadorPerdidas').innerHTML = perdidasContador++;
+                    ronda = 0;
+                    cogerNumero();
+                    // mytable.innerHTML = '';
+
+                    var tableRows = mytable.getElementsByTagName('tr');
+                    var rowCount = tableRows.length;
+
+                    for (var x=rowCount-1; x>0; x--) {
+                       mytable.removeChild(tableRows[x]);
+                    }
+
+                }
+                ronda++;
+                document.getElementById("textoBox").innerHTML = "Round " + ronda;
             }
 
            

@@ -49,3 +49,26 @@ button {
     border-left: 0px;
     border-top: 0px;
 }
+
+#circulo {
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+#circuloVerde {
+    width: 80%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+}
+
+#dynamic-table {
+	width: 10%;
+ }
+ 
+ th, td {
+    width: 1%;
+    text-align: center;
+ }

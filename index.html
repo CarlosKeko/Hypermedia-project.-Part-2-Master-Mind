@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hypermedia project. Part 2</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="juego.js"></script>
 </head>
 <body>
     <div id="content">
@@ -15,12 +16,30 @@
         </div>
 
         <div id="divPlayer">
-            <h2>Player information</h2>
+            <h2 id="playerInformation">Player information</h2>
+        </div>
+
+        <div id="marcadores" style="display: none">
+            <p>Wins: <b id="marcadorGanadas">0</b></p> <p>Loses: <b id="marcadorPerdidas">0</b></p>
+        </div>
+
+        <div>
+            <table id="dynamic-table">
+                <tr>
+                    <th>Date/hour</th>
+                    <th>Username</th>
+                    <th>Comment</th>
+                    <th></th>
+                </tr>
+            </table>
         </div>
 
         <div id="divText">
-            <p>Name: <input type="text"></p>
-            <button type="button">Play!</button>
+            <label for="username" id="textoBox">Name:</label>
+            <input type="text" id="username" name="username">
+            <button onclick="iniciarPartida()" id="botonPlay">Play</button>
+            <button onclick="play()" style="display:none" id="botonJuego">Guess!</button>
+
         </div>
 
     </div>
